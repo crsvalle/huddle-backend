@@ -6,8 +6,6 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-const rafflesController = require('./contollers/rafflesController.js')
-app.use('/raffles',  rafflesController)
 
 app.get('/', (req, res) => {
     res.status(200).json({data: "Server working!"})
