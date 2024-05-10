@@ -6,6 +6,8 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
+const teamsController = require ('./controllers/teamsController')
+app.use('/teams', teamsController)
 
 app.get('/', (req, res) => {
     res.status(200).json({data: "Server working!"})
