@@ -1,5 +1,5 @@
 const teams_fields = [
-    name,  desc
+    'name',  'desc'
 ]
 
 const validateId = (req, res, next) => {
