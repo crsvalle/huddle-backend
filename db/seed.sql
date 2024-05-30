@@ -17,3 +17,15 @@ INSERT INTO teams (owner_id, name, description, created_at) VALUES
 (7, 'Alpha Projects', 'Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', '2021-05-19T07:15:56'),
 (5, 'Creative Minds', 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.', '2023-03-11T08:50:30'),
 (2, 'Future Visions', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', '2023-12-04T15:37:22');
+
+INSERT INTO user_teams (user_id, team_id, joined_at) VALUES
+(1, 1, CURRENT_TIMESTAMP), 
+(2, 1, CURRENT_TIMESTAMP), 
+(3, 1, CURRENT_TIMESTAMP), 
+(4, 4, CURRENT_TIMESTAMP), 
+(5, 4, CURRENT_TIMESTAMP), 
+(6, 4, CURRENT_TIMESTAMP), 
+(7, 2, CURRENT_TIMESTAMP), 
+(8, 2, CURRENT_TIMESTAMP),
+(9, 3, CURRENT_TIMESTAMP), 
+(10, 5, CURRENT_TIMESTAMP);

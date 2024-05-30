@@ -21,3 +21,11 @@ CREATE TABLE teams(
     description TEXT,
     created_at TIMESTAMPTZ NOT NULL
 );
+DROP TABLE IF EXISTS user_teams;
+
+CREATE TABLE user_teams (
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+    team_id INTEGER REFERENCES teams(id) ON DELETE CASCADE,
+    joined_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (user_id, team_id)
+);
