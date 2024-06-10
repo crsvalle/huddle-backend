@@ -1,7 +1,23 @@
 const db = require("../db/dbConfig");
 
 const getAllTeams = async () => {
-    return db.manyOrNone("SELECT * FROM teams")
+    return db.manyOrNone(`
+        SELECT 
+        teams.*,
+        json_build_object(
+            'id', owners.id,
+            'first_name', owners.first_name,
+            'last_name', owners.last_name,
+            'email', owners.email) 
+        AS owner,
+        COUNT(user_teams.user_id) AS total_members,
+        array_agg(user_teams.user_id) AS member_ids
+        FROM teams
+        JOIN users AS owners ON teams.owner_id = owners.id
+        JOIN user_teams ON teams.id = user_teams.team_id
+        GROUP BY teams.id, owners.id
+        ORDER BY teams.id DESC;
+`)
 }
 
 const getTeamsById = async (id) => {
